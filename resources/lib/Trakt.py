@@ -313,9 +313,9 @@ dialog_list = ['Add to Watchlist', 'Remove from Watchlist']
 
 selection = tools.showDialog.select(tools.addonName + ': Trakt Manager', dialog_list)
 
-        if selection == 0:
-            thread = threading.Thread(target=self.addToWatchList, args=(trakt_object,))
-        elif selection == 1:
-            thread = threading.Thread(target=self.removeFromWatchlist, args=(trakt_object,))
-        else:
-            return
+if selection == 0:
+	thread = threading.Thread(target=self.addToWatchList, args=(trakt_object,))
+elif selection == 1:
+	thread = threading.Thread(target=self.removeFromWatchlist, args=(trakt_object,))
+else:
+	return
