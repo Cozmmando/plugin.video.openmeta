@@ -3,6 +3,8 @@ import xbmc, xbmcgui
 from resources.lib import text
 from resources.lib.xswift2 import plugin
 
+from resources.lib.common import tools
+
 title = 'Authenticate Trakt'
 msg1  = 'Do you want to authenticate with Trakt now?'
 msg2  = 'Please go to  https://trakt.tv/activate  and enter this code: '
