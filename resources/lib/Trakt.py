@@ -3,8 +3,6 @@ import xbmc, xbmcgui
 from resources.lib import text
 from resources.lib.xswift2 import plugin
 
-from resources.lib.common import tools
-
 title = 'Authenticate Trakt'
 msg1  = 'Do you want to authenticate with Trakt now?'
 msg2  = 'Please go to  https://trakt.tv/activate  and enter this code: '
@@ -313,7 +311,7 @@ def get_related_movies_paginated(imdb_id, page):
 
 dialog_list = ['Add to Watchlist', 'Remove from Watchlist']
 
-selection = tools.showDialog.select(tools.addonName + ': Trakt Manager', dialog_list)
+selection = dialog_list
 
 if selection == 0:
 	thread = threading.Thread(target=self.addToWatchList, args=(trakt_object,))
