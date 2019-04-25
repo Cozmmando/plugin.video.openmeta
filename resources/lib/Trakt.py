@@ -308,3 +308,20 @@ def get_collected_movies_paginated(page):
 @plugin.cached(TTL=60, cache='Trakt')
 def get_related_movies_paginated(imdb_id, page):
 	return call_trakt('movies/%s/related?extended=full&limit=10' % imdb_id, pagination=True, page=page, with_auth=False)
+
+dialog_list = ['Add to Watchlist', 'Remove from Watchlist']
+
+selection = tools.showDialog.select(tools.addonName + ': Trakt Manager', dialog_list)
+        thread = None
+
+        if selection == 0:
+            thread = threading.Thread(target=self.addToWatchList, args=(trakt_object,))
+        elif selection == 1:
+            thread = threading.Thread(target=self.removeFromWatchlist, args=(trakt_object,))
+        else:
+            return
+
+        if thread is not None:
+            thread.start()
+
+        return
